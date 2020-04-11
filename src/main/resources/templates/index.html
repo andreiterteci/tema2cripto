@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tema 2</title>
+</head>
+<body>
+<h1>
+    Tema laborator 2 criptografie si securitate</h1>
+<h2>Terteci Andrei Cornel</h2>
+<h2>Grupa 454</h2>
+
+<h1 th:text="${bitsize}" style="color: red"></h1>
+<!--<label for="bitsize">Dimensiune</label>-->
+<!--<input type="text" th:field="*{bitsize}" id="bitsize"-->
+<!--       class="form-control" placeholder="Dimensiunea fisierului">-->
+
+<form action="#" th:action="@{/file-size}" th:object="${Integer}" method="post">
+    <p>Id: <input type="number" th:field="*{fileSize}" /></p>
+    <p><input type="submit" value="Submit" />
+</form>
+
+</body>
+</html>

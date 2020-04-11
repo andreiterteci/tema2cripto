@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Tema 2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<h1>Tema laborator 2 criptografie si securitate</h1>
+<h2>Terteci Andrei Cornel</h2>
+<h2>Grupa 454</h2>
+
+<form action="#" th:action="@{/blum-blum-shub}" th:object="${userData}" method="post">
+    <p>Bit size(in functie de aceasta valoare se genereaza prima valoare si M initial): <input type="text" th:field="*{bitSize}"/></p>
+    <p>File size(kB): <input type="text" th:field="*{fileSize}"/></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+
+<div th:if="${inputError == true}">
+    <h2 style="color: red">The file size cannot be null or 0 !!</h2>
+</div>
+
+<div th:if="${bitSizeMin == true}">
+    <h2 style="color: red">The bit size must be atleast 10 !!</h2>
+</div>
+
+<div th:if="${inputError == false && bitSizeMin == false}">
+    <div th:if="${bbsNumbers != null}">
+        <div th:each="number: ${bbsNumbers}">
+            <p th:text="${number}"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
